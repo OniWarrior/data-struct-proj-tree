@@ -28,6 +28,10 @@ private:
     void displayInOrder(TreeNode *nodePtr) const;
     void displayPreOrder(TreeNode *nodePtr) const;
     void displayPostOrder(TreeNode *nodePtr) const;
+
+public:
+    IntBinaryTree() { root = nullptr; }
+    ~IntBinaryTree() { destroySubTree(root); }
 };
 
 #endif
