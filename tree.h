@@ -23,6 +23,7 @@ private:
     // Private member functions
     void insert(TreeNode *&nodePtr, TreeNode *&newNode);
     void destroySubTree(TreeNode *nodePtr);
+    void deleteNode(int num, TreeNode *&nodePtr);
 };
 
 #endif
