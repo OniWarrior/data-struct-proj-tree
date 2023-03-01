@@ -19,6 +19,9 @@ class IntBinaryTree
 {
 private:
     TreeNode *root; // Pointer to the root node
+
+    // Private member functions
+    void insert(TreeNode *&nodePtr, TreeNode *&newNode)
 };
 
 #endif
