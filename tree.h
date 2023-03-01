@@ -15,4 +15,10 @@ struct TreeNode
     TreeNode *right; // Pointer to right child node
 };
 
+class IntBinaryTree
+{
+private:
+    TreeNode *root; // Pointer to the root node
+};
+
 #endif
