@@ -32,6 +32,9 @@ private:
 public:
     IntBinaryTree() { root = nullptr; }
     ~IntBinaryTree() { destroySubTree(root); }
+
+    // Binary tree operations
+    void insertNode(int num);
 };
 
 #endif
