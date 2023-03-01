@@ -35,6 +35,7 @@ public:
 
     // Binary tree operations
     void insertNode(int num);
+    bool searchNode(int num);
 };
 
 #endif
