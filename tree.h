@@ -27,6 +27,7 @@ private:
     void makeDeletion(TreeNode *&nodePtr);
     void displayInOrder(TreeNode *nodePtr) const;
     void displayPreOrder(TreeNode *nodePtr) const;
+    void displayPostOrder(TreeNode *nodePtr) const;
 };
 
 #endif
