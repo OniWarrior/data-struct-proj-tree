@@ -21,7 +21,8 @@ private:
     TreeNode *root; // Pointer to the root node
 
     // Private member functions
-    void insert(TreeNode *&nodePtr, TreeNode *&newNode)
+    void insert(TreeNode *&nodePtr, TreeNode *&newNode);
+    void destroySubTree(TreeNode *nodePtr);
 };
 
 #endif
