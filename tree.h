@@ -24,6 +24,7 @@ private:
     void insert(TreeNode *&nodePtr, TreeNode *&newNode);
     void destroySubTree(TreeNode *nodePtr);
     void deleteNode(int num, TreeNode *&nodePtr);
+    void makeDeletion(TreeNode *&nodePtr);
 };
 
 #endif
