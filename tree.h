@@ -8,4 +8,11 @@
 #ifndef _INT_BINARY_TREE_H_
 #define _INT_BINARY_TREE_H_
 
+struct TreeNode
+{
+    int m_value;     // The value in the node.
+    TreeNode *left;  // Pointer to left child node
+    TreeNode *right; // Pointer to right child node
+};
+
 #endif
