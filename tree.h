@@ -37,6 +37,7 @@ public:
     void insertNode(int num);
     bool searchNode(int num);
     void remove(int num);
+    void displayInOrder() const { displayInOrder(root); }
 };
 
 #endif
