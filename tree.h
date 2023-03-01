@@ -39,6 +39,7 @@ public:
     void remove(int num);
     void displayInOrder() const { displayInOrder(root); }
     void displayPreOrder() const { displayPreOrder(root); }
+    void displayPostOrder() const { displayPostOrder(root); }
 };
 
 #endif
