@@ -19,4 +19,13 @@ int main()
   tree.insertNode(2);
   tree.insertNode(3);
   tree.insertNode(4);
+
+  // Display the current values in the tree.
+  std::cout << "\nHere are the values in the tree: \n";
+
+  std::cout << std::endl;
+  std::cout << std::endl;
+
+  // Display the current number of nodes in the tree.
+  tree.displayInOrderNumNodes();
 }
