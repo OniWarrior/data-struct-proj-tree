@@ -39,6 +39,7 @@ void IntBinaryTree::insertNode(int num)
     insert(root, newNode);
 }
 
+int IntBinaryTree::getNumFull() const { return m_numFull; }
 int IntBinaryTree::getNumNodes() const { return m_count; }
 int IntBinaryTree::getNumLeaves() const { return m_leaves; }
 
@@ -69,6 +70,27 @@ void IntBinaryTree::displayInOrder(TreeNode *nodePtr) const
         displayInOrder(nodePtr->left);
         std::cout << nodePtr->m_value << std::endl;
         displayInOrder(nodePtr->right);
+    }
+}
+
+void IntBinaryTree::setNumFull(TreeNode *&nodePtr)
+{
+
+    if (!nodePtr)
+    {
+        return;
+    }
+    else if (nodePtr->left && nodePtr->right)
+    {
+        m_numFull++;
+    }
+    if (nodePtr->left)
+    {
+        setNumFull(nodePtr->left);
+    }
+    if (nodePtr->right)
+    {
+        setNumFull(nodePtr->right);
     }
 }
 
