@@ -102,3 +102,20 @@ void IntBinaryTree::remove(int num)
 {
     deleteNode(num, root);
 }
+
+void IntBinaryTree::deleteNode(int num, TreeNode *&nodePtr)
+{
+
+    if (num < nodePtr->m_value)
+    {
+        deleteNode(num, nodePtr->left);
+    }
+    else if (num > nodePtr->m_value)
+    {
+        deleteNode(num, nodePtr->right);
+    }
+    else
+    {
+        makeDeletion(nodePtr);
+    }
+}
