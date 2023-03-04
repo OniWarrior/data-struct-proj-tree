@@ -6,6 +6,7 @@ Desc  : Specification file for tree.h
 */
 
 #include "tree.h"
+#include <iostream>
 
 void IntBinaryTree::insert(TreeNode *&nodePtr, TreeNode *&newNode)
 {
@@ -36,4 +37,15 @@ void IntBinaryTree::insertNode(int num)
 
     // Insert the node.
     insert(root, newNode);
+}
+
+void IntBinaryTree::displayInOrder(TreeNode *nodePtr) const
+{
+
+    if (nodePtr)
+    {
+        displayInOrder(nodePtr->left);
+        std::cout << nodePtr->m_value << std::endl;
+        displayInOrder(nodePtr->right);
+    }
 }
