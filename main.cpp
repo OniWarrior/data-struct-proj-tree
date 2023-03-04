@@ -10,6 +10,15 @@
 int main()
 {
 
+  // timer for calcNumNodes execution time--setNumNodes is the actual method that calculates the number of nodes.
+  auto startCalcNumNodesTimer = std::chrono::high_resolution_clock::now();
+
+  // Timer for calcNumLeaves execution time--setNumLeaves is the actual method that calculates the number of leavs.
+  auto startCalcNumLeaves = std::chrono::high_resolution_clock::now();
+
+  // Timer for calcNumFull execution time--setNumFull is the actual method that calculates the number of full nodes.
+  auto startCalcNumFull = std::chrono::high_resolution_clock::now();
+
   // create the binary tree.
   IntBinaryTree tree;
 
@@ -24,32 +33,26 @@ int main()
 
   // calculate the number of nodes and leaves in tree.
 
-  // timer for calcNumNodes execution time--setNumNodes is the actual method that calculates the number of nodes.
-  auto startCalcNumNodesTimer = std::chrono::high_resolution_clock::now();
   tree.calcNumNodes();
   auto endCalcNumNodesTimer = std::chrono::high_resolution_clock::now();
   //--------------------------------------------------------------------------------------------------------
 
-  // Timer for calcNumLeaves execution time--setNumLeaves is the actual method that calculates the number of leavs.
-  auto startCalcNumLeaves = std::chrono::high_resolution_clock::now();
   tree.calcNumLeaves();
   auto endCalcNumLeaves = std::chrono::high_resolution_clock::now();
   //-------------------------------------------------------------------------------------------------------
 
-  // Timer for calcNumFull execution time--setNumFull is the actual method that calculates the number of full nodes.
-  auto startCalcNumFull = std::chrono::high_resolution_clock::now();
   tree.calcNumFull();
   auto endCalcNumFull = std::chrono::high_resolution_clock::now();
   //---------------------------------------------------------------------------------------------------------
 
   // time difference for the calcNumNodes timer
-  auto timeDiffCalcNumNodes = std::chrono::duration_cast<std::chrono::milliseconds>(endCalcNumNodesTimer - startCalcNumNodesTimer);
+  auto timeDiffCalcNumNodes = std::chrono::duration_cast<std::chrono::microseconds>(endCalcNumNodesTimer - startCalcNumNodesTimer);
 
   // time difference for the calcNumLeaves timer
-  auto timeDiffCalcNumLeaves = std::chrono::duration_cast<std::chrono::milliseconds>(endCalcNumLeaves - startCalcNumLeaves);
+  auto timeDiffCalcNumLeaves = std::chrono::duration_cast<std::chrono::microseconds>(endCalcNumLeaves - startCalcNumLeaves);
 
   // time difference for the calcNumFull
-  auto timeDiffCalcNumFull = std::chrono::duration_cast<std::chrono::milliseconds>(endCalcNumFull - startCalcNumFull);
+  auto timeDiffCalcNumFull = std::chrono::duration_cast<std::chrono::microseconds>(endCalcNumFull - startCalcNumFull);
 
   // Display the current values in the tree.
   std::cout << "\nHere are the values in the tree: \n";
@@ -65,8 +68,8 @@ int main()
   std::cout << tempNodes << std::endl;
 
   // Execution time for calcNumNodes and setNumNodes methods.
-  std::cout << "Execution time: " << timeDiffCalcNumNodes.count()
-            << "Microseconds. " << std::endl;
+  std::cout << "Execution time:   " << timeDiffCalcNumNodes.count()
+            << "  microseconds. " << std::endl;
 
   // Display the current number of leaves in the tree.
   int tempLeaves = tree.getNumLeaves();
@@ -75,8 +78,8 @@ int main()
   std::cout << tempLeaves << std::endl;
 
   // Execution time for calcNumLeaves and setNumLeaves methods.
-  std::cout << "Execution time: " << timeDiffCalcNumLeaves.count()
-            << "Microseconds." << std::endl;
+  std::cout << "Execution time:   " << timeDiffCalcNumLeaves.count()
+            << "  microseconds." << std::endl;
 
   // Display the current number of full nodes in the tree.
   int tempFullNodes = tree.getNumFull();
@@ -85,8 +88,8 @@ int main()
   std::cout << tempFullNodes << std::endl;
 
   // Execution time for calcNumFull and setNumFull methods.
-  std::cout << "Execution time: " << timeDiffCalcNumFull.count()
-            << "Microseconds." << std::endl;
+  std::cout << "Execution time:   " << timeDiffCalcNumFull.count()
+            << "  microseconds." << std::endl;
 
   //--------------------End of Question 1 implementation.-------------------
 }
