@@ -23,3 +23,17 @@ void IntBinaryTree::insert(TreeNode *&nodePtr, TreeNode *&newNode)
         insert(nodePtr->right, newNode); // Search the right branch.
     }
 }
+
+void IntBinaryTree::insertNode(int num)
+{
+
+    TreeNode *newNode; // Pointer to a new node.
+
+    // Create a new node and store num in it.
+    newNode = new TreeNode;
+    newNode->m_value = num;
+    newNode->left = newNode->right = nullptr;
+
+    // Insert the node.
+    insert(root, newNode);
+}
