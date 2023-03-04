@@ -49,3 +49,15 @@ void IntBinaryTree::displayInOrder(TreeNode *nodePtr) const
         displayInOrder(nodePtr->right);
     }
 }
+
+void IntBinaryTree::displayPreOrder(TreeNode *nodePtr) const
+{
+
+    if (nodePtr)
+    {
+
+        std::cout << nodePtr->m_value << std::endl;
+        displayPreOrder(nodePtr->left);
+        displayPreOrder(nodePtr->right);
+    }
+}
