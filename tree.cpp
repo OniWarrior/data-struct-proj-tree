@@ -61,3 +61,15 @@ void IntBinaryTree::displayPreOrder(TreeNode *nodePtr) const
         displayPreOrder(nodePtr->right);
     }
 }
+
+void IntBinaryTree::displayPostOrder(TreeNode *nodePtr) const
+{
+
+    if (nodePtr)
+    {
+
+        displayPostOrder(nodePtr->left);
+        displayPostOrder(nodePtr->right);
+        std::cout << nodePtr->m_value << std::endl;
+    }
+}
