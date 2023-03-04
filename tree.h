@@ -25,6 +25,7 @@ private:
     void destroySubTree(TreeNode *nodePtr);
     void deleteNode(int num, TreeNode *&nodePtr);
     void makeDeletion(TreeNode *&nodePtr);
+    void displayInOrderNumNodes(TreeNode *nodePtr) const;
     void displayInOrder(TreeNode *nodePtr) const;
     void displayPreOrder(TreeNode *nodePtr) const;
     void displayPostOrder(TreeNode *nodePtr) const;
@@ -37,6 +38,7 @@ public:
     void insertNode(int num);
     bool searchNode(int num);
     void remove(int num);
+    void displayInOrderNumNodes() const { displayInOrderNumNodes(root); }
     void displayInOrder() const { displayInOrder(root); }
     void displayPreOrder() const { displayPreOrder(root); }
     void displayPostOrder() const { displayPostOrder(root); }
