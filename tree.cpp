@@ -39,6 +39,7 @@ void IntBinaryTree::insertNode(int num)
     insert(root, newNode);
 }
 
+int IntBinaryTree::getSearchProp() const { return m_searchProp; }
 int IntBinaryTree::getNumFull() const { return m_numFull; }
 int IntBinaryTree::getNumNodes() const { return m_count; }
 int IntBinaryTree::getNumLeaves() const { return m_leaves; }
@@ -91,6 +92,26 @@ void IntBinaryTree::setNumFull(TreeNode *&nodePtr)
     if (nodePtr->right)
     {
         setNumFull(nodePtr->right);
+    }
+}
+
+void IntBinaryTree::searchAndTestForOrder(TreeNode *nodePtr, int prevNodeVal, bool isSatisfied)
+{
+
+    if (nodePtr)
+    {
+        searchAndTestForOrder(nodePtr->left, prevNodeVal, m_searchProp);
+        if (nodePtr->m_value > prevNodeVal)
+        {
+            m_searchProp = true;
+            prevNodeVal = nodePtr->m_value;
+        }
+        else
+        {
+            m_searchProp = false;
+            prevNodeVal = nodePtr->m_value;
+        }
+        searchAndTestForOrder(nodePtr->right, prevNodeVal, m_searchProp);
     }
 }
 

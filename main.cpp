@@ -92,4 +92,27 @@ int main()
             << "  microseconds." << std::endl;
 
   //--------------------End of Question 1 implementation.-------------------
+
+  //-------------------Beginning of Question 2 implementation---------------
+  std::cout << std::endl
+            << std::endl;
+
+  std::cout << "Beginning of Q2 Implementation********************\n\n";
+
+  std::cout << "Test for search order property of tree\n\n";
+
+  // test for search order property of tree
+  tree.isSearchOrderPropertySatisfied();
+
+  // Get the result from the test
+  if (tree.getSearchProp() == true)
+  {
+    std::cout << "Search order property is satisfied\n\n";
+  }
+  else
+  {
+    std::cout << "Search order property is not satisfied\n\n";
+  }
+
+  //--------------------End of Question 2 implementation-----------------------
 }

@@ -18,10 +18,11 @@ struct TreeNode
 class IntBinaryTree
 {
 private:
-    TreeNode *root;    // Pointer to the root node
-    int m_count = 0;   // current number of nodes.
-    int m_leaves = 0;  // current number of leaves in the tree.
-    int m_numFull = 0; // current number of full nodes in the tree.
+    TreeNode *root;           // Pointer to the root node
+    int m_count = 0;          // current number of nodes.
+    int m_leaves = 0;         // current number of leaves in the tree.
+    int m_numFull = 0;        // current number of full nodes in the tree.
+    int m_searchProp = false; // prop that says whether or not tree obeys search property at every node.
 
     // Private member functions
     void insert(TreeNode *&nodePtr, TreeNode *&newNode);
@@ -34,6 +35,10 @@ private:
     void setNumNodes(TreeNode *nodePtr);
     void setNumFull(TreeNode *&nodePtr);
     //-------------------------------------
+
+    // Question 2 methods---------------------------
+    void searchAndTestForOrder(TreeNode *nodePtr, int prevNodeVal, bool isSatisfied); // bool value isSatisfied is set to false if you don't send it anything.
+    //----------------------------------------------
     void displayInOrder(TreeNode *nodePtr) const;
     void displayPreOrder(TreeNode *nodePtr) const;
     void displayPostOrder(TreeNode *nodePtr) const;
@@ -55,6 +60,12 @@ public:
     void calcNumLeaves() { setNumLeaves(root); }
     void calcNumNodes() { setNumNodes(root); }
     // ---------------------------------------------
+
+    // Question 2 methods----------------------------
+    int getSearchProp() const;
+    void isSearchOrderPropertySatisfied() { searchAndTestForOrder(root, 0, m_searchProp); };
+
+    //-----------------------------------------------
     void displayInOrder() const { displayInOrder(root); }
     void displayPreOrder() const { displayPreOrder(root); }
     void displayPostOrder() const { displayPostOrder(root); }
