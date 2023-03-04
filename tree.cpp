@@ -97,3 +97,8 @@ bool IntBinaryTree::searchNode(int num)
     }
     return false;
 }
+
+void IntBinaryTree::remove(int num)
+{
+    deleteNode(num, root);
+}
