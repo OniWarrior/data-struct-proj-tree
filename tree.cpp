@@ -39,6 +39,25 @@ void IntBinaryTree::insertNode(int num)
     insert(root, newNode);
 }
 
+void IntBinaryTree::destroySubTree(TreeNode *nodePtr)
+{
+
+    if (nodePtr)
+    {
+
+        if (nodePtr->left)
+        {
+            destroySubTree(nodePtr->left);
+        }
+
+        if (nodePtr->right)
+        {
+            destroySubTree(nodePtr->right);
+        }
+        delete nodePtr;
+    }
+}
+
 void IntBinaryTree::displayInOrder(TreeNode *nodePtr) const
 {
 
