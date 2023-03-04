@@ -119,3 +119,48 @@ void IntBinaryTree::deleteNode(int num, TreeNode *&nodePtr)
         makeDeletion(nodePtr);
     }
 }
+
+void IntBinaryTree::makeDeletion(TreeNode *&nodePtr)
+{
+
+    // Define a temporary pointer to use in reattaching
+    // the left subtree.
+    TreeNode *tempNodePtr;
+
+    if (nodePtr == nullptr)
+    {
+        std::cout << "Cannot delete empty node.\n";
+    }
+    else if (nodePtr->right == nullptr)
+    {
+        tempNodePtr = nodePtr;
+        nodePtr = nodePtr->left; // reattach the left child.
+        delete tempNodePtr;
+    }
+    else if (nodePtr->left == nullptr)
+    {
+
+        tempNodePtr = nodePtr;
+        nodePtr = nodePtr->right; // Reattach the right child.
+        delete tempNodePtr;
+    }
+    else
+    { // If the node has two children.
+
+        // Move one node to the right.
+        tempNodePtr = nodePtr->right;
+        // Go to the end left node.
+        while (tempNodePtr->left)
+        {
+
+            tempNodePtr = tempNodePtr->left;
+        }
+
+        // reattach the left subtree.
+        tempNodePtr->left = nodePtr->left;
+        tempNodePtr = nodePtr;
+        // Reattach the right subtree.
+        nodePtr = nodePtr->right;
+        delete tempNodePtr;
+    }
+}
