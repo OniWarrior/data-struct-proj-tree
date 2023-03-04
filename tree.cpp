@@ -39,6 +39,9 @@ void IntBinaryTree::insertNode(int num)
     insert(root, newNode);
 }
 
+int IntBinaryTree::getNumNodes() const { return m_count; }
+int IntBinaryTree::getNumLeaves() const { return m_leaves; }
+
 void IntBinaryTree::destroySubTree(TreeNode *nodePtr)
 {
 
@@ -69,19 +72,36 @@ void IntBinaryTree::displayInOrder(TreeNode *nodePtr) const
     }
 }
 
-void IntBinaryTree::displayInOrderNumNodes(TreeNode *nodePtr, int count) const
+void IntBinaryTree::setNumNodes(TreeNode *nodePtr)
 {
 
     if (nodePtr)
     {
         // count the current node
-        displayInOrderNumNodes(nodePtr->left, count);
-        count++; // variable that represents the number of nodes.
-        std::cout << "Node counted: "
-                  << count
-                  << " Nodes\n"
-                  << std::endl;
-        displayInOrderNumNodes(nodePtr->right, count);
+        setNumNodes(nodePtr->left);
+        m_count++; // variable that represents the number of nodes.
+        setNumNodes(nodePtr->right);
+    }
+}
+
+void IntBinaryTree::setNumLeaves(TreeNode *&nodePtr)
+{
+    if (!nodePtr)
+    {
+        return;
+    }
+    else if (!nodePtr->left && !nodePtr->right)
+    {
+        m_leaves++;
+        return;
+    }
+    if (nodePtr->left)
+    {
+        setNumLeaves(nodePtr->left);
+    }
+    if (nodePtr->right)
+    {
+        setNumLeaves(nodePtr->right);
     }
 }
 

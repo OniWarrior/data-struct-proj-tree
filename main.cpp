@@ -20,6 +20,10 @@ int main()
   tree.insertNode(3);
   tree.insertNode(4);
 
+  // calculate the number of nodes and leaves in tree.
+  tree.calcNumNodes();
+  tree.calcNumLeaves();
+
   // Display the current values in the tree.
   std::cout << "\nHere are the values in the tree: \n";
   tree.displayInOrder();
@@ -28,5 +32,14 @@ int main()
   std::cout << std::endl;
 
   // Display the current number of nodes in the tree.
-  tree.displayInOrderNumNodes();
+  std::cout << "Here are the number of nodes in the tree: \n";
+
+  int tempNodes = tree.getNumNodes();
+  std::cout << tempNodes << std::endl;
+
+  // Display the current number of leaves in the tree.
+  int tempLeaves = tree.getNumLeaves();
+
+  std::cout << "Here are the number of leaves in the tree: \n";
+  std::cout << tempLeaves << std::endl;
 }
