@@ -73,3 +73,27 @@ void IntBinaryTree::displayPostOrder(TreeNode *nodePtr) const
         std::cout << nodePtr->m_value << std::endl;
     }
 }
+
+bool IntBinaryTree::searchNode(int num)
+{
+
+    TreeNode *nodePtr = root;
+
+    while (nodePtr)
+    {
+
+        if (nodePtr->m_value == num)
+        {
+            return true;
+        }
+        else if (num < nodePtr->m_value)
+        {
+            nodePtr = nodePtr->left;
+        }
+        else
+        {
+            nodePtr = nodePtr->right;
+        }
+    }
+    return false;
+}
