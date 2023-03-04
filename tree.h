@@ -18,14 +18,14 @@ struct TreeNode
 class IntBinaryTree
 {
 private:
-    TreeNode *root; // Pointer to the root node
-
+    TreeNode *root;  // Pointer to the root node
+    int m_count = 0; // current number of nodes.
     // Private member functions
     void insert(TreeNode *&nodePtr, TreeNode *&newNode);
     void destroySubTree(TreeNode *nodePtr);
     void deleteNode(int num, TreeNode *&nodePtr);
     void makeDeletion(TreeNode *&nodePtr);
-    void displayInOrderNumNodes(TreeNode *nodePtr) const;
+    void displayInOrderNumNodes(TreeNode *nodePtr, int count) const;
     void displayInOrder(TreeNode *nodePtr) const;
     void displayPreOrder(TreeNode *nodePtr) const;
     void displayPostOrder(TreeNode *nodePtr) const;
@@ -38,7 +38,7 @@ public:
     void insertNode(int num);
     bool searchNode(int num);
     void remove(int num);
-    void displayInOrderNumNodes() const { displayInOrderNumNodes(root); }
+    void displayInOrderNumNodes() const { displayInOrderNumNodes(root, m_count); }
     void displayInOrder() const { displayInOrder(root); }
     void displayPreOrder() const { displayPreOrder(root); }
     void displayPostOrder() const { displayPostOrder(root); }

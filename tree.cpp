@@ -69,19 +69,20 @@ void IntBinaryTree::displayInOrder(TreeNode *nodePtr) const
     }
 }
 
-void IntBinaryTree::displayInOrderNumNodes(TreeNode *nodePtr) const
+void IntBinaryTree::displayInOrderNumNodes(TreeNode *nodePtr, int count) const
 {
-    int count = 0; // variable that represents the number of nodes.
 
     if (nodePtr)
     {
-        count++; // count the current node
-        displayInOrderNumNodes(nodePtr->left);
-        displayInOrderNumNodes(nodePtr->right);
+        // count the current node
+        displayInOrderNumNodes(nodePtr->left, count);
+        count++; // variable that represents the number of nodes.
+        std::cout << "Node counted: "
+                  << count
+                  << " Nodes\n"
+                  << std::endl;
+        displayInOrderNumNodes(nodePtr->right, count);
     }
-    std::cout << "Here are the number of nodes in the tree: "
-              << count
-              << std::endl;
 }
 
 void IntBinaryTree::displayPreOrder(TreeNode *nodePtr) const

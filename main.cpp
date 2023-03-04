@@ -22,6 +22,7 @@ int main()
 
   // Display the current values in the tree.
   std::cout << "\nHere are the values in the tree: \n";
+  tree.displayInOrder();
 
   std::cout << std::endl;
   std::cout << std::endl;
