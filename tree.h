@@ -18,11 +18,18 @@ struct TreeNode
 class IntBinaryTree
 {
 private:
-    TreeNode *root;           // Pointer to the root node
-    int m_count = 0;          // current number of nodes.
-    int m_leaves = 0;         // current number of leaves in the tree.
-    int m_numFull = 0;        // current number of full nodes in the tree.
+    TreeNode *root; // Pointer to the root node
+
+    // Question 1 attributes
+    int m_count = 0;   // current number of nodes.
+    int m_leaves = 0;  // current number of leaves in the tree.
+    int m_numFull = 0; // current number of full nodes in the tree.
+
+    //------------------------------------------------------------------------
+
+    // Question 2 attribute
     int m_searchProp = false; // prop that says whether or not tree obeys search property at every node.
+    // -------------------------------------------------------------------------
 
     // Private member functions
     void insert(TreeNode *&nodePtr, TreeNode *&newNode);
@@ -39,6 +46,12 @@ private:
     // Question 2 methods---------------------------
     void searchAndTestForOrder(TreeNode *nodePtr, int prevNodeVal, bool isSatisfied); // bool value isSatisfied is set to false if you don't send it anything.
     //----------------------------------------------
+
+    // Question 3 method----------------------------
+    void displayLevelOrder(TreeNode *nodePtr);
+
+    //-----------------------------------------------
+
     void displayInOrder(TreeNode *nodePtr) const;
     void displayPreOrder(TreeNode *nodePtr) const;
     void displayPostOrder(TreeNode *nodePtr) const;
@@ -66,6 +79,11 @@ public:
     void isSearchOrderPropertySatisfied() { searchAndTestForOrder(root, 0, m_searchProp); };
 
     //-----------------------------------------------
+
+    // Question 3 method -----------------------------
+    void displayLevelOrder() { displayLevelOrder(root); }
+
+    //------------------------------------------------
     void displayInOrder() const { displayInOrder(root); }
     void displayPreOrder() const { displayPreOrder(root); }
     void displayPostOrder() const { displayPostOrder(root); }
