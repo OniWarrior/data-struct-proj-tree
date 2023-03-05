@@ -115,4 +115,10 @@ int main()
   }
 
   //--------------------End of Question 2 implementation-----------------------
+
+  //--------------------Beginning of Question 3 implementation---------------
+  std::cout << "Beginning of Q3 Implementation******************************\n\n";
+  std::cout << "Here's the implementation of level wise order printing\n\n";
+  tree.displayLevelOrder();
+  //-------------------------------------------------------------------------
 }

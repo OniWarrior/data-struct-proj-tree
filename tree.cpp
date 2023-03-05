@@ -7,6 +7,7 @@ Desc  : Specification file for tree.h
 
 #include "tree.h"
 #include <iostream>
+#include <queue>
 
 void IntBinaryTree::insert(TreeNode *&nodePtr, TreeNode *&newNode)
 {
@@ -169,6 +170,55 @@ void IntBinaryTree::displayPostOrder(TreeNode *nodePtr) const
         displayPostOrder(nodePtr->left);
         displayPostOrder(nodePtr->right);
         std::cout << nodePtr->m_value << std::endl;
+    }
+}
+
+void IntBinaryTree::displayLevelOrder(TreeNode *nodePtr)
+{
+    int level = 0;
+    std::queue<TreeNode *> myQueue;
+
+    if (nodePtr == nullptr)
+    {
+        return;
+    }
+
+    myQueue.push(nodePtr);
+    myQueue.push(nullptr);
+
+    while (myQueue.size() != 0)
+    {
+
+        TreeNode *frontQ = myQueue.front();
+        myQueue.pop();
+
+        if (frontQ == nullptr)
+        {
+
+            if (myQueue.size() == 0)
+            {
+                std::cout << "Level " << level << std::endl;
+                break;
+            }
+
+            std::cout << "Level " << level << std::endl;
+            level++;
+            myQueue.push(nullptr);
+        }
+        else
+        {
+            std::cout << frontQ->m_value << " ";
+
+            if (frontQ->left != nullptr)
+            {
+                myQueue.push(frontQ->left);
+            }
+
+            if (frontQ->right != nullptr)
+            {
+                myQueue.push(frontQ->right);
+            }
+        }
     }
 }
 
